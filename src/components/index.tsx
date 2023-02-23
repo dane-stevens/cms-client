@@ -1,2 +1,3 @@
 import { Page } from "./Page";
-export { Page };
+import ContentedProvider, { useContented } from "./Contented";
+export { Page, ContentedProvider, useContented };

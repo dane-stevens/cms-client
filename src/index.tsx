@@ -1,7 +1,7 @@
 import { Components, DefinitionOptions } from "./types";
 import loadable from "@loadable/component";
 import { zodToJsonSchema } from "./utils/zodToJsonSchema";
-export { Page } from "./components";
+export * from "./components";
 export { loadable };
 
 const CONTENTED_SECRET_KEY = "sk_skr5pte9guegsgk2u7bw92uq";
