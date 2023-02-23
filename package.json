@@ -3,16 +3,16 @@
   "version": "0.0.1",
   "description": "",
   "private": false,
-  "main": "index.js",
-  "module": "",
-  "types": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vitest",
     "test": "vitest run",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc",
     "ci": "pnpm run lint && pnpm run test && pnpm run build",
-    "release": "pnpm run lint && pnpm run test && pnpnm run build && changeset publish"
+    "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish"
   },
   "keywords": [
     "zod",
