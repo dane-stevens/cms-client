@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.7
+
+### Patch Changes
+
+- 2d6b1c5: readme
+
 ## 0.0.6
 
 ### Patch Changes
