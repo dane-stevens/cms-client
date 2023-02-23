@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.6
+
+### Patch Changes
+
+- bc15600: npm ignore
+
 ## 0.0.5
 
 ### Patch Changes
