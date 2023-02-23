@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vitest",
     "test": "vitest run",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup src/index.tsx --format cjs,esm --dts",
     "lint": "tsc",
     "ci": "pnpm run lint && pnpm run test && pnpm run build",
     "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish"
@@ -23,15 +23,28 @@
   "homepage": "",
   "bugs": "",
   "peerDependencies": {
+    "@iconify/react": "^4",
+    "@loadable/component": "^5",
+    "react": "^16",
+    "react-dom": "^16",
     "zod": "^3"
   },
   "author": "Dane Stevens",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
+    "@iconify/react": "^4.1.0",
+    "@iconify/types": "^2.0.0",
+    "@loadable/component": "^5.15.3",
+    "@types/loadable__component": "^5.13.4",
     "@types/node": "^18.14.1",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5",
-    "vitest": "^0.28.5"
+    "vitest": "^0.28.5",
+    "zod": "^3.20.6"
   }
 }
