@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.5
+
+### Patch Changes
+
+- 0832dbb: ignore files
+
 ## 0.0.4
 
 ### Patch Changes
