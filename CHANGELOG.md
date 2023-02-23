@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.8
+
+### Patch Changes
+
+- f60b7ec: refactoring
+
 ## 0.0.7
 
 ### Patch Changes
