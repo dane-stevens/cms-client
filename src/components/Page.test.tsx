@@ -14,8 +14,8 @@ const pageData = {
   // ],
 };
 
-describe("Accordion test", () => {
-  test("should show title all the time", () => {
+describe("Page Components", () => {
+  test("should render", () => {
     const { getByTestId } = render(<Page data={pageData} />);
 
     expect(getByTestId("page")).toBeInTheDocument();
