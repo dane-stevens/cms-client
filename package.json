@@ -23,11 +23,11 @@
   "homepage": "",
   "bugs": "",
   "peerDependencies": {
-    "@iconify/react": "^4",
-    "@loadable/component": "^5",
-    "react": "^16",
-    "react-dom": "^16",
-    "zod": "^3"
+    "@iconify/react": ">=4",
+    "@loadable/component": ">=5",
+    "react": ">=16",
+    "react-dom": ">=16",
+    "zod": ">=3"
   },
   "author": "Dane Stevens",
   "license": "MIT",
