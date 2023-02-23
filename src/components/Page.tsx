@@ -55,8 +55,8 @@ export function Page({ data }: { data: any }) {
     <div
       ref={pageRef}
       className={`contented:page border ${isHovered ? "border-purple-600" : "border-transparent"}`}
+      data-testid="page"
     >
-      TEST
       {children && (
         <ParseContent
           data={children}

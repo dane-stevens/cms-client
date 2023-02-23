@@ -1,6 +1,6 @@
 # `cms-client`
 
-Visually edit your react components with zod defined schemas.
+Visually edit your react components with end-to-end type safe schemas.
 
 ## Installation
 
