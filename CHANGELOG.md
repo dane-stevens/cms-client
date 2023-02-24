@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.23
+
+### Patch Changes
+
+- 84ebda3: added postmessage validation
+
 ## 0.0.22
 
 ### Patch Changes
