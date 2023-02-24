@@ -5,6 +5,7 @@ specifiers:
   '@iconify/react': ^4.1.0
   '@iconify/types': ^2.0.0
   '@loadable/component': ^5.15.3
+  '@paralleldrive/cuid2': ^2.2.0
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^14.0.0
   '@types/babel__core': ^7.20.0
@@ -28,6 +29,7 @@ devDependencies:
   '@iconify/react': 4.1.0_react@18.2.0
   '@iconify/types': 2.0.0
   '@loadable/component': 5.15.3_react@18.2.0
+  '@paralleldrive/cuid2': 2.2.0
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
   '@types/babel__core': 7.20.0
@@ -976,6 +978,10 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
+  /@noble/hashes/1.2.0:
+    resolution: {integrity: sha512-FZfhjEDbT5GRswV3C6uvLPHMiVD6lQBmpoX5+eSiPaMTXte/IKqI5dykDxzZB/WBeK/CDuQRBWarPdi3FNY2zQ==}
+    dev: true
+
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -995,6 +1001,12 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: true
+
+  /@paralleldrive/cuid2/2.2.0:
+    resolution: {integrity: sha512-CVQDpPIUHrUGGLdrMGz1NmqZvqmsB2j2rCIQEu1EvxWjlFh4fhvEGmgR409cY20/67/WlJsggenq0no3p3kYsw==}
+    dependencies:
+      '@noble/hashes': 1.2.0
     dev: true
 
   /@sinclair/typebox/0.25.24:

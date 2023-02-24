@@ -25,7 +25,7 @@ export const MessageEvent_Dropped = z.object({
   x: z.number(),
   y: z.number(),
   component: z.object({
-    id: z.string().cuid(),
+    id: z.string().cuid2(),
     component: z.string(),
     data: z.any(),
   }),
@@ -33,12 +33,12 @@ export const MessageEvent_Dropped = z.object({
 
 export const MessageEvent_Delete = z.object({
   _action: z.literal(DELETE),
-  id: z.string().cuid(),
+  id: z.string().cuid2(),
 });
 
 export const MessageEvent_Edit = z.object({
   _action: z.literal(EDIT),
-  id: z.string().cuid(),
+  id: z.string().cuid2(),
   field: z.string(),
   value: z.any(),
 });

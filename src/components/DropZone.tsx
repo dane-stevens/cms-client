@@ -1,10 +1,8 @@
-// import { nanoid } from "nanoid";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { checkIsInside, checkIsNear } from "../utils/functions";
 import { DRAGGING, DROPPED, MessageEvent_Dragging, MessageEvent_Dropped } from "../zodTypes";
 import { z } from "zod";
 import { useListener } from "../hooks/useListener";
-import { CMSPARENT } from "./Page";
 import { postMessage } from "../utils/postMessage";
 
 export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {

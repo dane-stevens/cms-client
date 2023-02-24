@@ -19,7 +19,7 @@ const PostMessage_Handshake = z.object({
 
 const PostMessage_ComponentSelected = z.object({
   _action: z.literal("COMPONENT_SELECTED"),
-  id: z.string().cuid(),
+  id: z.string().cuid2(),
   page: z.string().url(),
   component: z.string(),
   data: z.any(),
