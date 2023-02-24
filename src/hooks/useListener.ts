@@ -4,9 +4,8 @@ export const CMSPARENT = "http://localhost:5009";
 
 export function useListener(func: (event: MessageEvent) => void) {
   useEffect(() => {
-    window.onmessage = (event) => {
-      handleMessage(event, func);
-    };
+    window.addEventListener("message", (event) => handleMessage(event, func));
+    return () => window.removeEventListener("message", () => handleMessage);
   }, []);
 }
 
