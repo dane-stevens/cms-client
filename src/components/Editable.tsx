@@ -34,7 +34,7 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
   }, []);
 
   // Listen for postMessage events
-  useListener(getMessage, z.union([MessageEvent_Dragging, MessageEvent_Edit]));
+  useListener(getMessage, [DRAGGING, EDIT], z.union([MessageEvent_Dragging, MessageEvent_Edit]));
 
   function getMessage(event: MessageEvent) {
     if (event.data._action === DRAGGING) {

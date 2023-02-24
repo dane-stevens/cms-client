@@ -43,6 +43,7 @@ export function Page({ data }: { data: any }) {
 
   useListener(
     getMessage,
+    [ALLOW_NAVIGATE, DRAGGING, DROPPED],
     z.union([MessageEvent_AllowNavigate, MessageEvent_Dragging, MessageEvent_Dropped])
   );
 

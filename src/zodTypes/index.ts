@@ -6,6 +6,9 @@ export const DROPPED = "DROPPED";
 export const DELETE = "DELETE";
 export const EDIT = "EDIT";
 
+export type EventActions = z.infer<typeof EventActions>[];
+export const EventActions = z.enum([ALLOW_NAVIGATE, DRAGGING, DROPPED, DELETE, EDIT]);
+
 export const MessageEvent_AllowNavigate = z.object({
   _action: z.literal(ALLOW_NAVIGATE),
   isNavigateEnabled: z.boolean(),

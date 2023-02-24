@@ -1,7 +1,7 @@
 // import { nanoid } from "nanoid";
 import { useEffect, useRef, useState } from "react";
 import { checkIsInside, checkIsNear } from "../utils/functions";
-import { MessageEvent_Dragging, MessageEvent_Dropped } from "../zodTypes";
+import { DRAGGING, DROPPED, MessageEvent_Dragging, MessageEvent_Dropped } from "../zodTypes";
 import { z } from "zod";
 import { useListener } from "../hooks/useListener";
 import { CMSPARENT } from "./Page";
@@ -12,10 +12,14 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
   const [isHovered, setIsHovered] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
 
-  useListener(getMessage, z.union([MessageEvent_Dragging, MessageEvent_Dropped]));
+  useListener(
+    getMessage,
+    [DRAGGING, DROPPED],
+    z.union([MessageEvent_Dragging, MessageEvent_Dropped])
+  );
 
   function getMessage(event: MessageEvent) {
-    if (event.data._action === "DRAGGING") {
+    if (event.data._action === DRAGGING) {
       const bounds: any = dropzoneRef?.current?.getBoundingClientRect();
       const isNear = checkIsNear(bounds, {
         x: event.data.x,
@@ -37,7 +41,7 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
         setIsSelected(false);
       }
     }
-    if (event.data._action === "DROPPED") {
+    if (event.data._action === DROPPED) {
       const bounds: any = dropzoneRef?.current?.getBoundingClientRect();
       const isInside = checkIsInside(bounds, {
         x: event.data.x,
@@ -50,7 +54,7 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
         const targetWindow = window.parent;
         return targetWindow.postMessage(
           {
-            type: "DROPPED",
+            type: DROPPED,
             page: window.location.pathname,
             component: event.data.component,
             dataPath,

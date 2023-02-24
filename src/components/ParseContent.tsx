@@ -6,7 +6,7 @@ import { Editable } from "./Editable";
 export function ParseContent({ data, isParentHovered, dataPath, valuePath }: any) {
   const [children, setChildren] = useState(data);
 
-  useListener(getMessage, MessageEvent_Delete);
+  useListener(getMessage, [DELETE], MessageEvent_Delete);
 
   function getMessage(event: MessageEvent) {
     if (event.data._action === DELETE) {
