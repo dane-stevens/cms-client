@@ -13,6 +13,7 @@ import {
   MessageEvent_Dropped,
 } from "../zodTypes";
 import { z } from "zod";
+import { postMessage } from "../utils/postMessage";
 
 export const editColor = "dodgerblue";
 
@@ -28,17 +29,13 @@ export function Page({ data }: { data: any }) {
   let valuePath = "children";
 
   useEffect(() => {
-    const targetWindow = window.parent;
-    targetWindow.postMessage(
-      {
-        type: "HANDSHAKE",
-        location: {
-          href: window.location.href,
-          pathname: window.location.pathname,
-        },
+    return postMessage({
+      _action: "HANDSHAKE",
+      location: {
+        href: window.location.href,
+        pathname: window.location.pathname,
       },
-      CMSPARENT
-    );
+    });
   }, []);
 
   useListener(

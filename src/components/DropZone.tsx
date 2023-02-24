@@ -5,6 +5,7 @@ import { DRAGGING, DROPPED, MessageEvent_Dragging, MessageEvent_Dropped } from "
 import { z } from "zod";
 import { useListener } from "../hooks/useListener";
 import { CMSPARENT } from "./Page";
+import { postMessage } from "../utils/postMessage";
 
 export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
   const dropzoneRef = useRef<HTMLDivElement>(null);
@@ -51,17 +52,14 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
       setIsDragging(false);
       if (isInside) {
         onDrop && onDrop(event.data.component);
-        const targetWindow = window.parent;
-        return targetWindow.postMessage(
-          {
-            type: DROPPED,
-            page: window.location.pathname,
-            component: event.data.component,
-            dataPath,
-            index,
-          },
-          CMSPARENT
-        );
+
+        return postMessage({
+          _action: "DROPPED",
+          page: window.location.pathname,
+          component: event.data.component,
+          dataPath,
+          index,
+        });
       }
     }
   }

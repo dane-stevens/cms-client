@@ -8,6 +8,7 @@ import { ParseContent } from "./ParseContent";
 import { useListener } from "../hooks/useListener";
 import { DRAGGING, EDIT, MessageEvent_Dragging, MessageEvent_Edit } from "../zodTypes";
 import { z } from "zod";
+import { postMessage } from "../utils/postMessage";
 
 export function Editable({ index, content, isParentHovered, dataPath, valuePath, onDrop }: any) {
   const { cms, isEditable } = useContented();
@@ -75,19 +76,15 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
   function setParentEditing() {
     // setIsEditing(true);
     console.log(componentDefinition.type);
-    const targetWindow = window.parent;
-    return targetWindow.postMessage(
-      {
-        type: "COMPONENT_SELECTED",
-        page: window.location.href,
-        id,
-        component: content.component,
-        data: content.data,
-        dataPath: valuePath,
-        // types: componentDefinition.type,
-      },
-      CMSPARENT
-    );
+
+    return postMessage({
+      _action: "COMPONENT_SELECTED",
+      page: window.location.href,
+      id,
+      component: content.component,
+      data: content.data,
+      dataPath: valuePath,
+    });
   }
 
   return (
