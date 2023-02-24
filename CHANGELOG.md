@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.16
+
+### Patch Changes
+
+- 53a5b13: add zodparsing
+
 ## 0.0.15
 
 ### Patch Changes
