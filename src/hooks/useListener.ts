@@ -1,21 +1,26 @@
 import { useEffect } from "react";
+import { ZodSchema } from "zod";
 
 export const CMSPARENT = "http://localhost:5009";
 
-export function useListener(func: (event: MessageEvent) => void, actions: string[]) {
+export function useListener(func: (event: MessageEvent) => void, schema: ZodSchema) {
   useEffect(() => {
-    window.addEventListener("message", (event) => handleMessage(event, func, actions));
-    return () => window.removeEventListener("message", () => handleMessage);
+    window.addEventListener("message", messageEventHandler);
+    return () => window.removeEventListener("message", messageEventHandler);
   }, []);
-}
 
-function handleMessage(
-  event: MessageEvent,
-  func: (event: MessageEvent) => void,
-  actions: string[]
-) {
-  if (event.origin !== CMSPARENT) return;
-  if (!actions.includes(event.data._action)) return;
-  console.log("HANDLE MESSAGE TRIGGERED-------------------------", event.data);
-  return func(event);
+  function messageEventHandler(event: MessageEvent) {
+    return handleMessage(event, func, schema);
+  }
+
+  function handleMessage(
+    event: MessageEvent,
+    func: (event: MessageEvent) => void,
+    schema: ZodSchema
+  ) {
+    if (event.origin !== CMSPARENT) return;
+    schema.parse(event.data);
+    return func(event);
+  }
+  return;
 }
