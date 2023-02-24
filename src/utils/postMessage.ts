@@ -29,7 +29,11 @@ const PostMessage_ComponentSelected = z.object({
 const PostMessage_Dropped = z.object({
   _action: z.literal("DROPPED"),
   page: z.string().url(),
-  component: z.string(),
+  component: z.object({
+    id: z.string().cuid2(),
+    component: z.string(),
+    data: z.any(),
+  }),
   dataPath: z.string(),
   index: z.number(),
 });
