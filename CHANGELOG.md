@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.18
+
+### Patch Changes
+
+- 1db3faf: adding consts to actions
+
 ## 0.0.17
 
 ### Patch Changes
