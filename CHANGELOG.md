@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.28
+
+### Patch Changes
+
+- 05e78ec: url
+
 ## 0.0.27
 
 ### Patch Changes
