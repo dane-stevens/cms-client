@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.12
+
+### Patch Changes
+
+- efc09e4: fix listener
+
 ## 0.0.11
 
 ### Patch Changes
