@@ -10,6 +10,7 @@ export function useListener(func: (event: MessageEvent) => void) {
 }
 
 function handleMessage(event: MessageEvent, func: (event: MessageEvent) => void) {
+  console.log("HANDLE MESSAGE TRIGGERED-------------------------");
   if (event.origin !== CMSPARENT) return;
   return func(event);
 }
