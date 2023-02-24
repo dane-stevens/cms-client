@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.20
+
+### Patch Changes
+
+- a5dc15e: adding editing
+
 ## 0.0.19
 
 ### Patch Changes
