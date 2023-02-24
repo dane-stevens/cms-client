@@ -1,5 +1,12 @@
 # cms-client-dane
 
+## 0.0.14
+
+### Patch Changes
+
+- 6d595d6: fix
+- 52b73e7: scope listener actions
+
 ## 0.0.13
 
 ### Patch Changes
