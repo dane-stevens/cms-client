@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.24
+
+### Patch Changes
+
+- 4a66bb0: fix zod
+
 ## 0.0.23
 
 ### Patch Changes
