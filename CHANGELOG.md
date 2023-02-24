@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.25
+
+### Patch Changes
+
+- abe41ef: changed to cuid2
+
 ## 0.0.24
 
 ### Patch Changes
