@@ -13,9 +13,9 @@
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
+    // "paths": {
+    //   "~/*": ["./src/*"]
+    // },
     "noEmit": true
   }
 }

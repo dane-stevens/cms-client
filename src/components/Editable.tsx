@@ -5,6 +5,7 @@ import { DropZone } from "./DropZone";
 import { checkIsInside } from "../utils/functions";
 import { CMSPARENT, editColor } from "./Page";
 import { ParseContent } from "./ParseContent";
+import { useListener } from "../hooks/useListener";
 
 export function Editable({ index, content, isParentHovered, dataPath, valuePath, onDrop }: any) {
   const { cms, isEditable } = useContented();
@@ -31,13 +32,9 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
   }, []);
 
   // Listen for postMessage events
-  useEffect(() => {
-    window.addEventListener("message", getMessage, false);
-    return () => window.removeEventListener("message", getMessage);
-  }, []);
+  useListener(getMessage);
 
-  function getMessage(event: any) {
-    if (event.origin !== CMSPARENT) return;
+  function getMessage(event: MessageEvent) {
     if (event.data._action === "DRAGGING") {
       const bounds: any = ref?.current?.getBoundingClientRect();
       setIsHovered(checkIsInside(bounds, { x: event.data.x, y: event.data.y }));

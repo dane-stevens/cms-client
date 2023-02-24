@@ -20,8 +20,10 @@
     "cms",
     "headless"
   ],
-  "homepage": "",
-  "bugs": "",
+  "homepage": "https://github.com/dane-stevens/cms-client/#readme",
+  "bugs": {
+    "url": "https://github.com/dane-stevens/cms-client/issues"
+  },
   "peerDependencies": {
     "@iconify/react": ">=4",
     "@loadable/component": ">=5",

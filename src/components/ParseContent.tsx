@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useListener } from "../hooks/useListener";
 import { Editable } from "./Editable";
 import { CMSPARENT } from "./Page";
 
 export function ParseContent({ data, isParentHovered, dataPath, valuePath }: any) {
   const [children, setChildren] = useState(data);
-  useEffect(() => {
-    window.addEventListener("message", getMessage, false);
-    return () => window.removeEventListener("message", getMessage);
-  }, []);
+  useListener(getMessage);
 
-  function getMessage(event: any) {
+  function getMessage(event: MessageEvent) {
     if (event.origin !== CMSPARENT) return;
     if (event.data._action === "DELETE") {
       const isInIndex = children.findIndex((child: any) => child.id === event.data.id);

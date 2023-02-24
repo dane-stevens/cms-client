@@ -1,6 +1,7 @@
 // import { nanoid } from "nanoid";
 import { useEffect, useRef, useState } from "react";
 import { checkIsInside, checkIsNear } from "src/utils/functions";
+import { useListener } from "../hooks/useListener";
 import { CMSPARENT } from "./Page";
 
 export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
@@ -10,13 +11,9 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
   const [isSelected, setIsSelected] = useState(false);
 
   // Listen for postMessage events
-  useEffect(() => {
-    window.addEventListener("message", getMessage, false);
-    return () => window.removeEventListener("message", getMessage);
-  }, []);
+  useListener(getMessage);
 
-  function getMessage(event: any) {
-    if (event.origin !== CMSPARENT) return;
+  function getMessage(event: MessageEvent) {
     if (event.data._action === "DRAGGING") {
       const bounds: any = dropzoneRef?.current?.getBoundingClientRect();
       const isNear = checkIsNear(bounds, {

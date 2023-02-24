@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { DropZone } from "./DropZone";
 import { checkIsInside } from "../utils/functions";
 import { ParseContent } from "./ParseContent";
+import { useListener } from "../hooks/useListener";
 
 export const editColor = "dodgerblue";
 
@@ -31,12 +32,9 @@ export function Page({ data }: { data: any }) {
     );
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("message", getMessage, false);
-    return () => window.removeEventListener("message", getMessage);
-  }, []);
+  useListener(getMessage);
 
-  function getMessage(event: any) {
+  function getMessage(event: MessageEvent) {
     if (event.origin !== CMSPARENT) return;
     if (event.data.hasOwnProperty("allowNavigate")) {
       setAllowNavigate(event.data.allowNavigate);
