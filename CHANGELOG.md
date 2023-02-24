@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.17
+
+### Patch Changes
+
+- 18ba79b: add zod parsing to listener
+
 ## 0.0.16
 
 ### Patch Changes
