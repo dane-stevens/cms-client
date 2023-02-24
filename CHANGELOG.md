@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.9
+
+### Patch Changes
+
+- 809e50d: added listener
+
 ## 0.0.8
 
 ### Patch Changes
