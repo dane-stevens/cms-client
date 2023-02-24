@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.22
+
+### Patch Changes
+
+- eb08abc: restrict event actions
+
 ## 0.0.21
 
 ### Patch Changes
