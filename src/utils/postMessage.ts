@@ -12,8 +12,8 @@ export function postMessage(event: PostMessageSchema) {
 const PostMessage_Handshake = z.object({
   _action: z.literal("HANDSHAKE"),
   location: z.object({
-    href: z.string().url(),
-    pathname: z.string().url(),
+    href: z.string(),
+    pathname: z.string(),
   }),
 });
 
