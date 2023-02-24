@@ -29,7 +29,7 @@
     "@loadable/component": ">=5",
     "react": ">=16",
     "react-dom": ">=16",
-    "zod": ">=3",
+    "zod": ">=3.20.3",
     "@paralleldrive/cuid2": ">=2"
   },
   "author": "Dane Stevens",
