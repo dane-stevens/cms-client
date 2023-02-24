@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.19
+
+### Patch Changes
+
+- 5bfd954: test
+
 ## 0.0.18
 
 ### Patch Changes
