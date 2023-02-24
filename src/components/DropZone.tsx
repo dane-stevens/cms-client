@@ -1,6 +1,7 @@
 // import { nanoid } from "nanoid";
 import { useEffect, useRef, useState } from "react";
 import { checkIsInside, checkIsNear } from "src/utils/functions";
+import { MessageEvent_Dragging, MessageEvent_Dropped } from "src/zodTypes";
 import { z } from "zod";
 import { useListener } from "../hooks/useListener";
 import { CMSPARENT } from "./Page";
@@ -11,32 +12,7 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
   const [isHovered, setIsHovered] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
 
-  // Listen for postMessage events
-  // useEffect(() => {
-  //   window.addEventListener("message", getMessage);
-  //   return () => window.removeEventListener("message", getMessage);
-  // }, []);
-
-  useListener(
-    getMessage,
-    z.union([
-      z.object({
-        _action: z.literal("DRAGGING"),
-        x: z.number(),
-        y: z.number(),
-      }),
-      z.object({
-        _action: z.literal("DROPPED"),
-        x: z.number(),
-        y: z.number(),
-        component: z.object({
-          id: z.string().cuid(),
-          component: z.string(),
-          data: z.any(),
-        }),
-      }),
-    ])
-  );
+  useListener(getMessage, z.union([MessageEvent_Dragging, MessageEvent_Dropped]));
 
   function getMessage(event: MessageEvent) {
     if (event.data._action === "DRAGGING") {

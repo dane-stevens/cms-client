@@ -4,6 +4,15 @@ import { DropZone } from "./DropZone";
 import { checkIsInside } from "../utils/functions";
 import { ParseContent } from "./ParseContent";
 import { useListener } from "../hooks/useListener";
+import {
+  ALLOW_NAVIGATE,
+  DRAGGING,
+  DROPPED,
+  MessageEvent_AllowNavigate,
+  MessageEvent_Dragging,
+  MessageEvent_Dropped,
+} from "src/zodTypes";
+import { z } from "zod";
 
 export const editColor = "dodgerblue";
 
@@ -32,22 +41,21 @@ export function Page({ data }: { data: any }) {
     );
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("message", getMessage);
-    return () => window.removeEventListener("message", getMessage);
-  }, []);
+  useListener(
+    getMessage,
+    z.union([MessageEvent_AllowNavigate, MessageEvent_Dragging, MessageEvent_Dropped])
+  );
 
   function getMessage(event: MessageEvent) {
-    if (event.origin !== CMSPARENT) return;
-    if (event.data.hasOwnProperty("allowNavigate")) {
-      setAllowNavigate(event.data.allowNavigate);
+    if (event.data._action === ALLOW_NAVIGATE) {
+      setAllowNavigate(event.data.isNavigateEnabled);
     }
 
-    if (event.data._action === "DRAGGING") {
+    if (event.data._action === DRAGGING) {
       const bounds: any = pageRef?.current?.getBoundingClientRect();
       setIsHovered(checkIsInside(bounds, { x: event.data.x, y: event.data.y }));
     }
-    if (event.data._action === "DROPPED") {
+    if (event.data._action === DROPPED) {
       setIsHovered(false);
     }
   }

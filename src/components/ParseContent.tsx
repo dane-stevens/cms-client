@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { ACTION_DELETE, MessageEvent_Delete } from "src/zodTypes";
+import { z } from "zod";
 import { useListener } from "../hooks/useListener";
 import { Editable } from "./Editable";
-import { CMSPARENT } from "./Page";
 
 export function ParseContent({ data, isParentHovered, dataPath, valuePath }: any) {
   const [children, setChildren] = useState(data);
-  useEffect(() => {
-    window.addEventListener("message", getMessage);
-    return () => window.removeEventListener("message", getMessage);
-  }, []);
+
+  useListener(getMessage, MessageEvent_Delete);
 
   function getMessage(event: MessageEvent) {
-    if (event.origin !== CMSPARENT) return;
-    if (event.data._action === "DELETE") {
+    if (event.data._action === ACTION_DELETE) {
       const isInIndex = children.findIndex((child: any) => child.id === event.data.id);
       if (isInIndex !== -1) {
         return setChildren((children: any) => {

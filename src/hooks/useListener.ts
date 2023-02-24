@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ZodSchema } from "zod";
+import { ZodParsedType, ZodSchema } from "zod";
 
 export const CMSPARENT = "http://localhost:5009";
 
@@ -19,8 +19,8 @@ export function useListener(func: (event: MessageEvent) => void, schema: ZodSche
     schema: ZodSchema
   ) {
     if (event.origin !== CMSPARENT) return;
-    const { success } = schema.safeParse(event.data);
-    if (!success) return;
+    const result = schema.safeParse(event.data);
+    if (!result.success) return;
     return func(event);
   }
   return;

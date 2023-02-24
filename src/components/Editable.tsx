@@ -6,6 +6,8 @@ import { checkIsInside } from "../utils/functions";
 import { CMSPARENT, editColor } from "./Page";
 import { ParseContent } from "./ParseContent";
 import { useListener } from "../hooks/useListener";
+import { z } from "zod";
+import { MessageEvent_Dragging } from "src/zodTypes";
 
 export function Editable({ index, content, isParentHovered, dataPath, valuePath, onDrop }: any) {
   const { cms, isEditable } = useContented();
@@ -32,10 +34,7 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
   }, []);
 
   // Listen for postMessage events
-  useEffect(() => {
-    window.addEventListener("message", getMessage);
-    return () => window.removeEventListener("message", getMessage);
-  }, []);
+  useListener(getMessage, MessageEvent_Dragging);
 
   function getMessage(event: MessageEvent) {
     if (event.origin !== CMSPARENT) return;
