@@ -4,6 +4,7 @@ export const ALLOW_NAVIGATE = "ALLOW_NAVIGATE";
 export const DRAGGING = "DRAGGING";
 export const DROPPED = "DROPPED";
 export const DELETE = "DELETE";
+export const EDIT = "EDIT";
 
 export const MessageEvent_AllowNavigate = z.object({
   _action: z.literal(ALLOW_NAVIGATE),
@@ -30,4 +31,11 @@ export const MessageEvent_Dropped = z.object({
 export const MessageEvent_Delete = z.object({
   _action: z.literal(DELETE),
   id: z.string().cuid(),
+});
+
+export const MessageEvent_Edit = z.object({
+  _action: z.literal(EDIT),
+  id: z.string().cuid(),
+  field: z.string(),
+  value: z.any(),
 });
