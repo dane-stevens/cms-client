@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ZodParsedType, ZodSchema } from "zod";
+import { ZodSchema } from "zod";
 
 export const CMSPARENT = "http://localhost:5009";
 

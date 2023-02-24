@@ -1,7 +1,7 @@
 // import { nanoid } from "nanoid";
 import { useEffect, useRef, useState } from "react";
-import { checkIsInside, checkIsNear } from "src/utils/functions";
-import { MessageEvent_Dragging, MessageEvent_Dropped } from "src/zodTypes";
+import { checkIsInside, checkIsNear } from "../utils/functions";
+import { MessageEvent_Dragging, MessageEvent_Dropped } from "../zodTypes";
 import { z } from "zod";
 import { useListener } from "../hooks/useListener";
 import { CMSPARENT } from "./Page";

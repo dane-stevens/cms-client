@@ -11,7 +11,7 @@ import {
   MessageEvent_AllowNavigate,
   MessageEvent_Dragging,
   MessageEvent_Dropped,
-} from "src/zodTypes";
+} from "../zodTypes";
 import { z } from "zod";
 
 export const editColor = "dodgerblue";

@@ -6,8 +6,7 @@ import { checkIsInside } from "../utils/functions";
 import { CMSPARENT, editColor } from "./Page";
 import { ParseContent } from "./ParseContent";
 import { useListener } from "../hooks/useListener";
-import { z } from "zod";
-import { MessageEvent_Dragging } from "src/zodTypes";
+import { DRAGGING, MessageEvent_Dragging } from "../zodTypes";
 
 export function Editable({ index, content, isParentHovered, dataPath, valuePath, onDrop }: any) {
   const { cms, isEditable } = useContented();
@@ -38,7 +37,7 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
 
   function getMessage(event: MessageEvent) {
     if (event.origin !== CMSPARENT) return;
-    if (event.data._action === "DRAGGING") {
+    if (event.data._action === DRAGGING) {
       const bounds: any = ref?.current?.getBoundingClientRect();
       setIsHovered(checkIsInside(bounds, { x: event.data.x, y: event.data.y }));
     }

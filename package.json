@@ -40,6 +40,7 @@
     "@loadable/component": "^5.15.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/babel__core": "^7.20.0",
     "@types/loadable__component": "^5.13.4",
     "@types/node": "^18.14.1",
     "@types/react": "^18.0.28",

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { ACTION_DELETE, MessageEvent_Delete } from "src/zodTypes";
-import { z } from "zod";
+import React, { useState } from "react";
+import { DELETE, MessageEvent_Delete } from "../zodTypes";
 import { useListener } from "../hooks/useListener";
 import { Editable } from "./Editable";
 
@@ -10,7 +9,7 @@ export function ParseContent({ data, isParentHovered, dataPath, valuePath }: any
   useListener(getMessage, MessageEvent_Delete);
 
   function getMessage(event: MessageEvent) {
-    if (event.data._action === ACTION_DELETE) {
+    if (event.data._action === DELETE) {
       const isInIndex = children.findIndex((child: any) => child.id === event.data.id);
       if (isInIndex !== -1) {
         return setChildren((children: any) => {
@@ -19,8 +18,6 @@ export function ParseContent({ data, isParentHovered, dataPath, valuePath }: any
         });
       }
     }
-
-    // setEditData(event.data);
   }
 
   return (
