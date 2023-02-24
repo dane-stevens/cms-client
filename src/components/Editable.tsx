@@ -7,6 +7,7 @@ import { CMSPARENT, editColor } from "./Page";
 import { ParseContent } from "./ParseContent";
 import { useListener } from "../hooks/useListener";
 import { DRAGGING, EDIT, MessageEvent_Dragging, MessageEvent_Edit } from "../zodTypes";
+import { z } from "zod";
 
 export function Editable({ index, content, isParentHovered, dataPath, valuePath, onDrop }: any) {
   const { cms, isEditable } = useContented();
@@ -33,7 +34,7 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
   }, []);
 
   // Listen for postMessage events
-  useListener(getMessage, MessageEvent_Dragging, MessageEvent_Edit);
+  useListener(getMessage, z.union([MessageEvent_Dragging, MessageEvent_Edit]));
 
   function getMessage(event: MessageEvent) {
     if (event.data._action === DRAGGING) {
