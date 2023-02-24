@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.15
+
+### Patch Changes
+
+- 17e57ca: revert uselistener
+
 ## 0.0.14
 
 ### Patch Changes
