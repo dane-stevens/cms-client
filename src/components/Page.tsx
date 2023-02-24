@@ -41,7 +41,11 @@ export function Page({ data }: { data: any }) {
   useListener(
     getMessage,
     [ALLOW_NAVIGATE, DRAGGING, DROPPED],
-    z.union([MessageEvent_AllowNavigate, MessageEvent_Dragging, MessageEvent_Dropped])
+    z.discriminatedUnion("_action", [
+      MessageEvent_AllowNavigate,
+      MessageEvent_Dragging,
+      MessageEvent_Dropped,
+    ])
   );
 
   function getMessage(event: MessageEvent) {

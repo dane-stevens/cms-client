@@ -35,7 +35,7 @@ const PostMessage_Dropped = z.object({
 });
 
 type PostMessageSchema = z.infer<typeof PostMessageSchema>;
-const PostMessageSchema = z.union([
+const PostMessageSchema = z.discriminatedUnion("_action", [
   PostMessage_Handshake,
   PostMessage_ComponentSelected,
   PostMessage_Dropped,

@@ -14,7 +14,7 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
   useListener(
     getMessage,
     [DRAGGING, DROPPED],
-    z.union([MessageEvent_Dragging, MessageEvent_Dropped])
+    z.discriminatedUnion("_action", [MessageEvent_Dragging, MessageEvent_Dropped])
   );
 
   function getMessage(event: MessageEvent) {
