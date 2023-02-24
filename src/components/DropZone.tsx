@@ -11,7 +11,7 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
   const [isSelected, setIsSelected] = useState(false);
 
   // Listen for postMessage events
-  useListener(getMessage);
+  useListener(getMessage, ["DRAGGING", "DROPPED"]);
 
   function getMessage(event: MessageEvent) {
     if (event.data._action === "DRAGGING") {
