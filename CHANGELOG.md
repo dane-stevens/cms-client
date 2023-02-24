@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.26
+
+### Patch Changes
+
+- ffc8a04: change to discriminated union
+
 ## 0.0.25
 
 ### Patch Changes
