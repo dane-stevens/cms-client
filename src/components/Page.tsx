@@ -32,7 +32,7 @@ export function Page({ data }: { data: any }) {
     );
   }, []);
 
-  useListener(getMessage);
+  useListener(getMessage, ["DRAGGING", "DROPPED"]);
 
   function getMessage(event: MessageEvent) {
     if (event.origin !== CMSPARENT) return;

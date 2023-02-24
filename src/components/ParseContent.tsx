@@ -5,7 +5,7 @@ import { CMSPARENT } from "./Page";
 
 export function ParseContent({ data, isParentHovered, dataPath, valuePath }: any) {
   const [children, setChildren] = useState(data);
-  useListener(getMessage);
+  useListener(getMessage, ["DELETE"]);
 
   function getMessage(event: MessageEvent) {
     if (event.origin !== CMSPARENT) return;

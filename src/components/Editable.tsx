@@ -32,7 +32,7 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
   }, []);
 
   // Listen for postMessage events
-  useListener(getMessage);
+  useListener(getMessage, ["DRAGGING"]);
 
   function getMessage(event: MessageEvent) {
     if (event.data._action === "DRAGGING") {
