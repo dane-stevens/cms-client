@@ -19,7 +19,8 @@ export function useListener(func: (event: MessageEvent) => void, schema: ZodSche
     schema: ZodSchema
   ) {
     if (event.origin !== CMSPARENT) return;
-    schema.parse(event.data);
+    const { success } = schema.safeParse(event.data);
+    if (!success) return;
     return func(event);
   }
   return;

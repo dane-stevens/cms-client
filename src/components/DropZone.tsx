@@ -19,12 +19,23 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
 
   useListener(
     getMessage,
-    z.object({
-      _action: z.enum(["DRAGGING", "DROPPED"]),
-      x: z.number(),
-      y: z.number(),
-      component: z.any(),
-    })
+    z.union([
+      z.object({
+        _action: z.literal("DRAGGING"),
+        x: z.number(),
+        y: z.number(),
+      }),
+      z.object({
+        _action: z.literal("DROPPED"),
+        x: z.number(),
+        y: z.number(),
+        component: z.object({
+          id: z.string().cuid(),
+          component: z.string(),
+          data: z.any(),
+        }),
+      }),
+    ])
   );
 
   function getMessage(event: MessageEvent) {
