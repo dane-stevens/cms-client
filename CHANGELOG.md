@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.21
+
+### Patch Changes
+
+- 0b7406c: fix
+
 ## 0.0.20
 
 ### Patch Changes
