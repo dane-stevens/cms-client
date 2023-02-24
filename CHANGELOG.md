@@ -1,5 +1,11 @@
 # cms-client-dane
 
+## 0.0.27
+
+### Patch Changes
+
+- e383c6f: zod
+
 ## 0.0.26
 
 ### Patch Changes
