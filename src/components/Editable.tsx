@@ -32,9 +32,13 @@ export function Editable({ index, content, isParentHovered, dataPath, valuePath,
   }, []);
 
   // Listen for postMessage events
-  useListener(getMessage, ["DRAGGING"]);
+  useEffect(() => {
+    window.addEventListener("message", getMessage);
+    return () => window.removeEventListener("message", getMessage);
+  }, []);
 
   function getMessage(event: MessageEvent) {
+    if (event.origin !== CMSPARENT) return;
     if (event.data._action === "DRAGGING") {
       const bounds: any = ref?.current?.getBoundingClientRect();
       setIsHovered(checkIsInside(bounds, { x: event.data.x, y: event.data.y }));

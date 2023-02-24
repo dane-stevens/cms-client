@@ -11,9 +11,13 @@ export function DropZone({ index, isParentHovered, onDrop, dataPath }: any) {
   const [isSelected, setIsSelected] = useState(false);
 
   // Listen for postMessage events
-  useListener(getMessage, ["DRAGGING", "DROPPED"]);
+  useEffect(() => {
+    window.addEventListener("message", getMessage);
+    return () => window.removeEventListener("message", getMessage);
+  }, []);
 
   function getMessage(event: MessageEvent) {
+    if (event.origin !== CMSPARENT) return;
     if (event.data._action === "DRAGGING") {
       const bounds: any = dropzoneRef?.current?.getBoundingClientRect();
       const isNear = checkIsNear(bounds, {
